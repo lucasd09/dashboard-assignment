@@ -13,7 +13,7 @@ import {
 const topItems = [
   {
     title: "Dashboard",
-    url: "/dashboard",
+    url: "/",
     icon: LayoutDashboard,
   },
   {
