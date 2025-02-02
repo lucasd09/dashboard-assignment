@@ -1,6 +1,6 @@
-import { MetricsCard } from "../_components/metrics-card";
-import { OverviewChart } from "../_components/overview-chart";
-import { OverviewTable } from "../_components/overview-table";
+import { MetricsCard } from "./_components/metrics-card";
+import { OverviewChart } from "./_components/overview-chart";
+import { OverviewTable } from "./_components/overview-table";
 
 export default function Page() {
   return <div className="p-6 space-y-2">
