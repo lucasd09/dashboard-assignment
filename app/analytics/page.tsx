@@ -3,8 +3,8 @@
 import { Card } from "@/components/ui/card"
 import { MetricsCard } from "../_components/metrics-card"
 import { OverviewChart } from "../_components/overview-chart"
-import { PieChart } from "../_components/pie-chart"
-import { BarChart } from "../_components/bar-chart"
+import { AnalyticsPieChart } from "../_components/pie-chart"
+import { AnalyticsBarChart } from "../_components/bar-chart"
 import { OverviewTable } from "../_components/overview-table"
 
 export default function Page() {
@@ -42,13 +42,13 @@ export default function Page() {
         </Card>
         <Card className="p-6">
           <h2 className="text-lg font-semibold mb-4">Asset Allocation</h2>
-          <PieChart />
+          <AnalyticsPieChart />
         </Card>
       </div>
 
       <Card className="p-6 mb-6">
         <h2 className="text-lg font-semibold mb-4">Monthly Returns</h2>
-        <BarChart />
+        <AnalyticsBarChart />
       </Card>
 
       <div>

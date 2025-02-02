@@ -17,7 +17,7 @@ export default function SecurityTab() {
         <CardDescription>Manage your account security preferences.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <Label htmlFor="2fa">Two-Factor Authentication</Label>
           <Switch id="2fa" checked={twoFactor} onCheckedChange={setTwoFactor} />
         </div>

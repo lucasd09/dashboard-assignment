@@ -28,7 +28,9 @@ export default function Page() {
       />
     </div>
     <h1 className="text-lg font-semibold">Overview</h1>
-    <OverviewChart />
+    <div className="border rounded-md bg-muted/20">
+      <OverviewChart />
+    </div>
     <OverviewTable />
   </div>
 }

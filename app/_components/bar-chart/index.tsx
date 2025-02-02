@@ -1,6 +1,7 @@
 "use client"
 
-import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
+import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
+import { Bar, XAxis, YAxis, CartesianGrid, BarChart } from "recharts"
 
 const data = [
   { name: "Jan", return: 4000 },
@@ -12,11 +13,19 @@ const data = [
   { name: "Jul", return: 3490 },
 ]
 
-export function BarChart() {
+export function AnalyticsBarChart() {
   return (
     <div className="h-[300px] w-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <RechartsBarChart
+      <ChartContainer
+        className="h-[300px] w-full"
+        config={{
+          return: {
+            label: "Return",
+            color: "#5A29E4",
+          },
+        }}
+      >
+        <BarChart
           data={data}
           margin={{
             top: 5,
@@ -26,12 +35,25 @@ export function BarChart() {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="return" fill="#5A29E4" />
-        </RechartsBarChart>
-      </ResponsiveContainer>
+          <XAxis
+            dataKey="name"
+            axisLine={false}
+            tickLine={false}
+            tickMargin={10}
+            fontSize={12}
+            stroke="hsl(var(--muted-foreground))"
+          />
+          <YAxis
+            axisLine={false}
+            tickLine={false}
+            tickMargin={10}
+            fontSize={12}
+            stroke="hsl(var(--muted-foreground))"
+          />
+          <ChartTooltip />
+          <Bar dataKey="return" fill="#5A29E4" radius={[4, 4, 0, 0]} />
+        </BarChart>
+      </ChartContainer>
     </div>
   )
 }

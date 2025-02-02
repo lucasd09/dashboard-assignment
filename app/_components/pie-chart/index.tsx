@@ -1,6 +1,7 @@
 "use client"
 
-import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts"
+import { PieChart, Pie, Cell } from "recharts"
+import { ChartContainer, ChartTooltip, ChartLegend, ChartConfig } from "@/components/ui/chart"
 
 const data = [
   { name: "Bitcoin", value: 400 },
@@ -9,23 +10,43 @@ const data = [
   { name: "Cardano", value: 100 },
 ]
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"]
+const config: ChartConfig = {
+  bitcoin: {
+    label: "Bitcoin",
+    color: "hsl(var(--chart-1))",
+  },
+  ethereum: {
+    label: "Ethereum",
+    color: "hsl(var(--chart-2))",
+  },
+  usdt: {
+    label: "USDT",
+    color: "hsl(var(--chart-3))",
+  },
+  cardano: {
+    label: "Cardano",
+    color: "hsl(var(--chart-4))",
+  },
+}
 
-export function PieChart() {
+export function AnalyticsPieChart() {
   return (
-    <div className="h-[300px] w-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <RechartsPieChart>
-          <Pie data={data} cx="50%" cy="50%" labelLine={false} outerRadius={80} fill="#5A29E4" dataKey="value">
-            {data.map((_, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+    <>
+      <ChartContainer
+        className="h-[300px] w-full"
+        config={config}
+      >
+        <PieChart>
+          <Pie data={data} cx="50%" cy="50%" labelLine={false} outerRadius={80} dataKey="value">
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={`var(--color-${entry.name.toLowerCase()})`} />
             ))}
           </Pie>
-          <Tooltip />
-          <Legend />
-        </RechartsPieChart>
-      </ResponsiveContainer>
-    </div>
+          <ChartTooltip />
+        </PieChart>
+      </ChartContainer>
+      <ChartLegend />
+    </>
   )
 }
 
